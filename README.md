@@ -1,4 +1,15 @@
-# Life-of-Bitcoin
-At 2018-02-10 13:33:09 UTC we suddenly found 30k bitcoins escaped from an exchange bitcoin address(1NDyJtNTjmwk5xPNhjgAMu4HDHigtobu1s)
-However,these coins started a fantasty travel,and I want to recode their track.
-The least tour:2018-02-14 15:28:08 UTC balance:25677.19btc.
+# The track was started on 2018-02-10 13:33:09 and ended on 2018-02-24 14:22:16.
+Install packages:
+```
+$ pip install -r requirements.txt
+```
+Run the tracker:
+```
+$ python3 trackbtc.py
+```
+Then you need to input a path so each transfer can be download in this folder.
+
+The start of this travel is start from the Bianace's hot wallet and end at the Bianace's cold wallet.
+Bianace's hot wallet:1NDyJtNTjmwk5xPNhjgAMu4HDHigtobu1s
+Bianace's cold wallet:16ftSEQ4ctQFDtVZiUBusQUjRrGhM3JYwe
+It was 2018-02-09 when Bianace was crashed for more than 24 hours, in other to kill the FUD, Bianace transfered 30k btc to its hot wallet...
