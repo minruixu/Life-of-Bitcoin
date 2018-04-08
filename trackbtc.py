@@ -5,9 +5,7 @@ from bs4 import BeautifulSoup
 def writedata(url,time,n):
     max = -1
     maxaddress = ''
-    fo = open('trackbtc/%s.csv'%n,'a+')
-    fo.write(time)
-    fo.write('\n')
+    fo = open(des+'/%s.csv'%n,'a+')
     page = requests.get(url).text
     page = str(BeautifulSoup(page,'lxml'))
     selector = etree.HTML(page)
@@ -28,6 +26,7 @@ def writedata(url,time,n):
         if fbalance > max:
             max = fbalance
             maxaddress = address
+        #if fbalance < 2000:
         fo.write(address + ',' + balance + '\n')
 
 def getnext(url,n):
@@ -45,10 +44,14 @@ def getnext(url,n):
         newurl = 'https://bitinfocharts.com/bitcoin/address/' + newaddress
         getnext(newurl,n+1)
     else:
-        print("The ttravel is end\n")
+        print("The travel is end\n")
         return 0
 
-
-address = '1Bxc45nVNLchwp2hbtJXbc3f5dAEPpPrZn'
-url = 'https://bitinfocharts.com/bitcoin/address/'+address
-getnext(url,1)
+if '__name__'=='__main__':
+    address1 = '1Bxc45nVNLchwp2hbtJXbc3f5dAEPpPrZn'#first start
+    address2 = '1825LCh5yd9twuRx7t8rEp7zmUSEYMbnWp'#second start
+    url1 = 'https://bitinfocharts.com/bitcoin/address/'+address1
+    url2 = 'https://bitinfocharts.com/bitcoin/address/'+address2
+    des = input("Please input your target folder:")
+    getnext(url1,1)
+    getnext(url2,100)
